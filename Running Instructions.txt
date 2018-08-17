@@ -1,0 +1,15 @@
+1. Download zip from github
+
+2. Open TODO App folder
+
+3. Open index.html
+
+4. Enter any task you have in mind and press 'GO'
+
+5. You will see it appear below
+
+6. If task is completed, click check box
+
+7. If you want to clear checked items, click clear completed
+
+8. Add multipel tasks
