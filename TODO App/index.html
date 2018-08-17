@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todoApp">
+<head>
+	<title> WhaTODO </title>
+		<style>
+		.done{text-decoration: line-through;color: #ccc;}
+		span[contenteditable = "true"] {
+			background: lightgray;
+			padding: 3px;
+		}
+	</style>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<script src="js/angular.min.js"></script>
+<script src="js/app.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+	<div class = "col-sm-4"></div>
+<div ng-controller="todoController" class="well container-fluid col-sm-4">
+	<h1 class="page-header" > WhaTODO Today? </h1>
+	<br>
+	<form name="frm" ng-submit = "addTodo()">
+	<input type="text" name="newTodo" ng-model = "newTodo" required/>
+	<button class="btn-success" ng-disabled='frm.$invalid'> Go</button>
+	</form> <br>
+	<button class = "btn-warning" ng-click="clearCompleted()">Clear Completed</button>
+	<br><br>
+	<ul>
+		<li ng-repeat='todo in todos track by $index'>
+		<input type="checkbox" ng-model='todo.done' />
+			<span ng-keydown ="enterAgain(todo.title)" contenteditable="false" ng-dblclick ="editTodo()" ng-class="{'done':todo.done}">{{todo.title}}</span> 
+
+		</li>
+ 	</ul>
+
+</div>
+<div class = "col-sm-4"></div>
+
+</body>
+
+</html>
